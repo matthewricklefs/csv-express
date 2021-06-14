@@ -3,3 +3,18 @@
 
 ## Setup Method
 https://medium.com/@agavitalis/setting-up-a-nodejs-express-application-with-babel-642fe0dd45a5
+
+# minor issues
+Obseved on ubuntu machine
+```bash
+npm start
+[nodemon] 2.0.7
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `babel-node app.js`
+body-parser deprecated undefined extended: provide extended option app.js:9:29
+app is listening to port 5000
+```
+
+Not sure why the body-parser warning is elicited as it has been removed from the package.json.
