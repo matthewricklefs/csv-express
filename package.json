@@ -25,10 +25,12 @@
   "homepage": "https://github.com/matthewricklefs/csv-express#readme",
   "dependencies": {
     "@babel/core": "^7.14.5",
-    "@babel/node": "^7.14.5",
     "@babel/preset-env": "^7.14.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "nodemon": "^2.0.7"
+  },
+  "devDependencies": {
+    "@babel/node": "^7.14.5"
   }
 }
