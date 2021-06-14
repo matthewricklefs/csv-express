@@ -4,8 +4,12 @@
 ## Setup Method
 https://medium.com/@agavitalis/setting-up-a-nodejs-express-application-with-babel-642fe0dd45a5
 
+- added a libCSV folder to house the CSV library built in previous assignments
+- added an input.csv file in the root of the application that the CSV library reads from
+
+
 # minor issues
-Obseved on ubuntu machine
+Observed on ubuntu machine
 ```bash
 npm start
 [nodemon] 2.0.7
