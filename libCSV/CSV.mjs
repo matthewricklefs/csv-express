@@ -28,6 +28,14 @@ class CSV {
     }
   }
 
+  addRow() {
+    let row = [];
+
+    this.rows.push(row);
+
+    return;
+  }
+
   findCell(row, column) {
     // find the index of the specific Row you are selecting
     var specificRow = this.rows[row];

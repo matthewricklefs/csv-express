@@ -18,6 +18,7 @@ class Row {
     }
     return;
   }
+
   /**
    * Return the position of this row in the CSV file
    * @param index
