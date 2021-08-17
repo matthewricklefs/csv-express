@@ -9,7 +9,12 @@ class CSV {
     this.columns = null;
     this.rows = [];
     this.getFileContents();
+    // this.isHappy();
   }
+  // Methods are specifically functions that are inside of an object ( that live inside of an object )
+  // isHappy() {
+  //   console.log("I am happy");
+  // }
   /**
    * open the file for reading it's contents
    */
@@ -28,12 +33,14 @@ class CSV {
     }
   }
 
-  addRow() {
-    let row = [];
+  appendRow() {
+    console.log(this);
 
-    this.rows.push(row);
+    var newRow = new Row(this.rows.length, ["", "", "", "", "", "", ""]);
 
-    return;
+    this.rows.push(newRow);
+
+    this.writeCSVFile(this.file);
   }
 
   findCell(row, column) {
@@ -45,10 +52,10 @@ class CSV {
 
     return specificCell;
   }
+
   /**
    * Return rows as a string, with a new line between each row
    */
-  // TODO: Should we abstract the stringify method found in the Row component inside of the function body below or create it's own unique ability to Stringify the CSV file?
   stringifyCSV() {
     let s = "";
     s += this.columns.stringify();

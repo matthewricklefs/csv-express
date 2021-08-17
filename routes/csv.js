@@ -1,5 +1,6 @@
 import express from "express";
 import CSV from "../libCSV/CSV.mjs";
+import Row from "../libCSV/Row.mjs";
 const router = express.Router();
 
 // GET
@@ -8,21 +9,37 @@ router.get("/", (req, res) => {
   res.send(JSON.stringify(myCsv));
 });
 
-// POST - Insert Row
-router.post("/insert", (req, res) => {
-  addRow();
+// POST - Insert Row ( at end of document)
+router.post("/", (req, res) => {
+  var myCsv = new CSV("input.csv");
+
+  myCsv.appendRow();
 
   return res.status(200).send("Row Inserted");
 });
 
 // DELETE - Remove Row
 router.delete("/:id", (req, res) => {
-  var row = req.params.id;
+  const id = req.params.id;
 
-  row = row.filter((x) => x.rowId != req.params.id);
+  let myCsv = new CSV("input.csv");
 
-  return res.status(200).send("Row Deleted");
+  myCsv.rows.splice(id, 1);
+
+  // const deleted = myCsv.findCell((row) => row.id == id);
+
+  // if (deleted) {
+  //   myCsv = myCsv.filter((row) => row.id != id);
+  // } else {
+  //   res.status(404).json({ message: "cannot find the row ID" });
+  // }
+
+  console.log("server side ID: ", id);
+
+  myCsv.writeCSVFile("input.csv");
 });
+
+// conditionally check that we are maintaining data persistence for the Zero Index...
 
 // PUT - Update Cell
 router.put("/:id", (req, res) => {

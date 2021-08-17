@@ -4,7 +4,6 @@ import Cell from "./Cell.mjs";
  * Rows are collections of cells.
  */
 class Row {
-  // what happens if we remove a cell
   /**
    * Constructor for a row class
    * @param values An array of values that will be transformed into cells

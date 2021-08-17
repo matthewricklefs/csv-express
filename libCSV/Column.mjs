@@ -18,6 +18,8 @@ class Column extends Row {
   getColumn(index) {
     return this.getCell(index);
   }
+  // to dynamically adjust the amount of columns in our application, we would have to utilize a method here so that we can adjust that value, which would in turn allow us to add length to the Row object.
+  
   /**
    * Wraps the setCell method of the Row class.
    * @param index, specify what cell to set
