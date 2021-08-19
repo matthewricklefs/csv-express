@@ -11,11 +11,13 @@ router.get("/", (req, res) => {
 
 // POST - Insert Row ( at end of document)
 router.post("/", (req, res) => {
+  console.log(req.body);
+
   var myCsv = new CSV("input.csv");
 
-  myCsv.appendRow();
+  myCsv.appendRowById(req.body.selectedRowId);
 
-  return res.status(200).send("Row Inserted");
+  myCsv.writeCSVFile("input.csv");
 });
 
 // DELETE - Remove Row
@@ -26,15 +28,8 @@ router.delete("/:id", (req, res) => {
 
   myCsv.rows.splice(id, 1);
 
-  // const deleted = myCsv.findCell((row) => row.id == id);
-
-  // if (deleted) {
-  //   myCsv = myCsv.filter((row) => row.id != id);
-  // } else {
-  //   res.status(404).json({ message: "cannot find the row ID" });
-  // }
-
   console.log("server side ID: ", id);
+  console.log("myCSV: ", myCsv);
 
   myCsv.writeCSVFile("input.csv");
 });

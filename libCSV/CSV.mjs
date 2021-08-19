@@ -33,14 +33,10 @@ class CSV {
     }
   }
 
-  appendRow() {
-    console.log(this);
-
+  appendRowById(id) {
     var newRow = new Row(this.rows.length, ["", "", "", "", "", "", ""]);
 
-    this.rows.push(newRow);
-
-    this.writeCSVFile(this.file);
+    this.rows.splice(id, 0, newRow);
   }
 
   findCell(row, column) {
